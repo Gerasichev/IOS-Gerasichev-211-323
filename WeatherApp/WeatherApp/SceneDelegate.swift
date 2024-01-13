@@ -22,11 +22,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let mainNavigationController = UINavigationController(rootViewController: MainViewController())
         let featuredNavigationController = UINavigationController(rootViewController: FeaturedViewController())
-        
+        let settingsNavigationController = UINavigationController(rootViewController: SettingsViewController())
+
         mainNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         featuredNavigationController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 1)
         
-        tabBarController.viewControllers = [mainNavigationController, featuredNavigationController]
+        let settingsImage = UIImage(systemName: "sunset")
+        settingsNavigationController.tabBarItem = UITabBarItem(title: "Settings", image: settingsImage, tag: 2)
+
+        tabBarController.viewControllers = [mainNavigationController, featuredNavigationController, settingsNavigationController]
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
